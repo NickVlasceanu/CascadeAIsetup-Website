@@ -199,69 +199,69 @@ h2 {
 .hero-with-photo .hero-text { flex: 1 1 320px; min-width: 0; }
 .hero-with-photo .headshot { flex: 0 0 auto; margin: 0; }
 
-/* ---- Photo placeholders / figures ---- */
-.headshot,
-.presenting {
-  margin: 0 0 22px;
-}
+/* ---- Photo figures ---- */
+.headshot { margin: 0; }
+.presenting { margin: 28px 0 8px; }
+
 .headshot figcaption,
 .presenting figcaption {
   font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, sans-serif;
   font-size: 13.5px;
   color: var(--ink-soft);
-  text-align: center;
   margin-top: 10px;
-  max-width: 60ch;
 }
-.presenting figcaption { text-align: left; }
+.headshot figcaption { text-align: center; }
 
-.photo-placeholder {
-  background:
-    repeating-linear-gradient(
-      45deg,
-      var(--paper-warm) 0 14px,
-      #e7dfd1 14px 28px
-    );
-  border: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-deep);
-  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, sans-serif;
-  font-size: 13px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  box-shadow: var(--shadow);
-}
-.photo-placeholder span {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 14px;
-}
-
+/* Round headshot in the hero */
 .photo-headshot {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-}
-.photo-wide {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius);
-}
-
-/* If you swap the placeholder div for a real <img>, it inherits these sizes */
-.headshot img.photo-headshot,
-.presenting img.photo-wide {
   object-fit: cover;
   display: block;
+  border: 3px solid var(--card);
+  box-shadow: var(--shadow);
+  image-orientation: from-image; /* honor EXIF rotation in all browsers */
 }
 
-@media (max-width: 520px) {
+/* Portrait presenting photo, sitting side-by-side with its caption */
+.presenting {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.photo-portrait {
+  flex: 0 0 auto;
+  width: 240px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  image-orientation: from-image;
+}
+.presenting figcaption {
+  flex: 1 1 auto;
+  margin-top: 0;
+  align-self: center;
+  font-size: 15.5px;
+  line-height: 1.55;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 560px) {
   .hero-with-photo { gap: 18px; }
   .photo-headshot { width: 130px; height: 130px; }
+
+  .presenting { flex-direction: column; align-items: center; gap: 14px; padding: 16px; }
+  .photo-portrait { width: 100%; max-width: 280px; }
+  .presenting figcaption { text-align: center; }
 }
 
 /* ---- Form embed ---- */
