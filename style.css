@@ -184,6 +184,10 @@ h3 { font-size: 22px; margin: 0 0 8px; }
 /* ---- Hero ---- */
 .hero { min-height: calc(82vh - 64px); display: flex; align-items: center; }
 .hero .grid-2 { width: 100%; align-items: center; }
+.hero .section-inner { width: 100%; }
+.hero-copy { max-width: 100%; }
+.hero-lower { grid-template-columns: 1.4fr 1fr; align-items: center; }
+.hero-copy .lede { margin-bottom: 20px; }
 .hero-cta-row {
   display: flex;
   align-items: center;
@@ -200,7 +204,7 @@ h3 { font-size: 22px; margin: 0 0 8px; }
   box-shadow: var(--shadow-lg);
   text-align: center;
 }
-.hero-photo .photo-headshot { width: 240px; height: 240px; }
+.hero-photo .photo-headshot { width: 300px; height: 300px; }
 .hero-photo figcaption {
   font-family: var(--sans);
   font-size: 13.5px;
@@ -281,6 +285,36 @@ h3 { font-size: 22px; margin: 0 0 8px; }
 .qa-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 .qa-card .q { font-weight: 600; margin: 0 0 8px; font-size: 18px; color: var(--ink); }
 .qa-card .a { color: var(--ink-soft); margin: 0; font-size: 16px; line-height: 1.55; }
+
+/* ---- Service cards (hub) ---- */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px 30px 28px;
+  box-shadow: var(--shadow);
+  transition: transform .15s, box-shadow .15s;
+}
+.service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.service-card h3 { margin: 0 0 10px; font-size: 24px; }
+.service-card p {
+  color: var(--ink-soft);
+  margin: 0 0 22px;
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+.service-card .btn-ghost { margin-top: auto; }
+
+/* ---- Active nav link ---- */
+.nav .links a.is-current { color: var(--accent); border-color: var(--accent); }
 
 /* ---- About section ---- */
 .about-grid {
@@ -461,7 +495,7 @@ footer .footer-bottom {
   .section { padding: 56px 22px; }
   .nav-inner { padding: 14px 22px; gap: 12px; }
   .nav .links { display: none; }
-  .grid-2, .qa-grid, .about-grid {
+  .grid-2, .qa-grid, .about-grid, .service-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
